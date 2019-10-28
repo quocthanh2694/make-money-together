@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity, Button } from "react-native";
 import { observer, inject } from "mobx-react";
 import CounterStore from "../../store/counterstore";
+import { SafeAreaView } from "react-navigation";
 
 interface props {
   counterStore: CounterStore;
@@ -19,24 +20,27 @@ class Home extends Component<props, {}> {
     console.log(this.props);
     const { counterStore, navigation } = this.props;
     return (
-      <View
-        style={{ flex: 1, alignContent: "center", justifyContent: "center" }}
-      >
-        <Text
-          style={{
-            alignSelf: "center",
-            fontSize: 40
-          }}
+      <View style={{ flex: 1 }}>
+        <View
+          style={{ flex: 1, alignContent: "center", justifyContent: "center" }}
         >
-          Home {counterStore.counter}
-        </Text>
-        <Button title="Increment" onPress={counterStore.increment} />
-        <Button
-          title="Go to profile"
-          onPress={() => {
-            navigation.navigate("Profile");
-          }}
-        />
+          <Text
+            style={{
+              alignSelf: "center",
+              fontSize: 40
+            }}
+          >
+            Home {counterStore.counter}
+          </Text>
+
+          <Button title="Increment" onPress={counterStore.increment} />
+          <Button
+            title="Go to profile"
+            onPress={() => {
+              navigation.navigate("Profile");
+            }}
+          />
+        </View>
       </View>
     );
   }

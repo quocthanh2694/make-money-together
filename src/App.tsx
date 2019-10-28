@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { Provider } from "mobx-react";
 import stores from "./store";
-import RootNavigator from "./RootNavigator";
+import RootNavigator from "./TabNavigator";
 import { observer, inject } from "mobx-react";
 import Login from "./screens/Auth";
 
