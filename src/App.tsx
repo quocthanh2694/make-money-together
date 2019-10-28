@@ -9,16 +9,17 @@ import Login from "./screens/Auth";
 @observer
 export default class MakeMoneyTogether extends Component {
   render() {
+    const obj: any = {};
     return (
       <View style={{ flex: 1 }}>
         <Provider {...stores}>
-        {
-          stores.authStore.userName == '123z' ? (
-            <RootNavigator />  
-          ): ( 
-            <Login/> 
-          )
-        }
+          {
+            stores.authStore.isLogged() ? (
+              <RootNavigator />
+            ) : (
+                <Login />
+              )
+          }
         </Provider>
       </View>
     );
